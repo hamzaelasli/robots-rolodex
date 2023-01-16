@@ -1,5 +1,6 @@
 import { Component } from "react";
 import CardList from "./components/card-list/card-list.component";
+import SearchBox from "./components/search-box/search-box.component";
 import "./App.css";
 
 class App extends Component {
@@ -19,7 +20,6 @@ class App extends Component {
           return { users: fetchedUsers };
         });
       });
-    console.log("component mounted and fetching data");
   }
   onSearchChange = (event) => {
     const searchBoxValue = event.currentTarget.value;
@@ -35,11 +35,10 @@ class App extends Component {
     });
     return (
       <div className="container">
-        <input
-          className="search-box"
-          type="search"
-          placeholder="search monster"
-          onChange={onSearchChange}
+        <SearchBox
+          className={"search-box"}
+          placeholder={"search users"}
+          onChangeHandler={onSearchChange}
         />
         <CardList users={filtredUsers} />
       </div>

@@ -1,11 +1,13 @@
 import { Component } from "react";
 
 class CardList extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
   render() {
+    console.log("render from card list");
     const { users } = this.props;
+
     return (
       <div className="users">
         {users.map((user) => {
