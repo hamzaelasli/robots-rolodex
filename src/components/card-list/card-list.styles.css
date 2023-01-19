@@ -1,0 +1,26 @@
+.users {
+  padding-left: 10px;
+  padding-left: 10px;
+}
+@media (min-width: 767px) {
+  .cards-container {
+    width: 750px;
+  }
+}
+@media (min-width: 990px) {
+  .cards-container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .cards-container {
+    width: 1170px;
+  }
+}
+.cards-container {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+}

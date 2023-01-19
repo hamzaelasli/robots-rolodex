@@ -1,0 +1,10 @@
+.card {
+  background-color: rgb(164, 164, 164);
+  text-align: center;
+  padding: 20px;
+}
+.card h2 {
+  text-transform: capitalize;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
