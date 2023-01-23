@@ -1,46 +1,50 @@
 import { Component } from "react";
-import CardList from "./components/card-list/card-list.component";
-import SearchBox from "./components/search-box/search-box.component";
 import "./App.css";
+import SearchBox from "./components/search-box/search-box.component";
+import CardList from "./components/card-list/card-list.component";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      users: [],
+      robots: [],
       searchField: "",
     };
-    console.log("constructor");
   }
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      .then((fetchedUsers) => {
+      .then((robotsObjArr) => {
         this.setState(() => {
-          return { users: fetchedUsers };
+          return { robots: robotsObjArr };
         });
       });
   }
   onSearchChange = (event) => {
-    const searchBoxValue = event.currentTarget.value;
-    this.setState(() => {
-      return { searchField: searchBoxValue };
-    });
+    const searchBoxValue = event.target.value.toLocaleLowerCase();
+    this.setState({ searchField: searchBoxValue });
   };
   render() {
-    const { users, searchField } = this.state;
+    const { robots, searchField } = this.state;
     const { onSearchChange } = this;
-    const filtredUsers = users.filter((user) => {
-      return user.name.toLowerCase().includes(searchField);
+    // console.log(robots);
+    // console.log(searchField);
+    const filtredRobots = robots.filter((robot) => {
+      const robotName = robot.name.toLocaleLowerCase();
+      // console.log(robotName.includes(searchField));
+      if (robotName.includes(searchField)) {
+        return robot;
+      }
     });
+    console.log(filtredRobots);
     return (
       <div className="container">
         <SearchBox
           className={"search-box"}
-          placeholder={"search users"}
+          placeholder={"search robots"}
           onChangeHandler={onSearchChange}
         />
-        <CardList users={filtredUsers} />
+        <CardList list={filtredRobots} />
       </div>
     );
   }
