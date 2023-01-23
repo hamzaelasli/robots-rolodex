@@ -1,33 +1,18 @@
 import { Component } from "react";
 import Card from "../card/card.component";
 import "./card-list.styles.css";
-class CardList extends Component {
-  // constructor() {
-  //   super();
-  // }
-  render() {
-    // console.log("render from card list");
-    const { users } = this.props;
 
-    console.log(users);
+class CardList extends Component {
+  render() {
+    const { list } = this.props;
     return (
-      <div className="users">
-        <div className="cards-container">
-          {users.map((user) => {
-            return (
-              // <div key={user.id} className="card">
-              //   {/* <img
-              //     src={`https://robohash.org/${user.id}?set=set3`}
-              //     alt="robot img"
-              //   />
-              //   <h2>{user.name}</h2>
-              //   <p>{user.email}</p> */}
-              //   <card user={user} />
-              // </div>
-              <Card user={user} key={user.id} />
-            );
-          })}
-        </div>
+      <div className="card-list-container">
+        {list.map((robot) => {
+          const { name, id, email } = robot;
+          return (
+            <Card name={name} id={id} email={email} />
+          );
+        })}
       </div>
     );
   }

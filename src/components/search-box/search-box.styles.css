@@ -1,14 +1,16 @@
-.search {
+.search--container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  padding-top: 25px;
+  padding-bottom: 30px;
 }
-input.search-box {
+.search--container input {
   display: inline-block;
-  width: 230px;
-  padding: 8px 10px;
+  width: 280px;
+  padding: 12px;
 }
-input.search-box::placeholder {
+.search--container input::placeholder {
   text-transform: capitalize;
+  color: #333;
 }
