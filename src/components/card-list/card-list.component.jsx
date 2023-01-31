@@ -8,10 +8,8 @@ class CardList extends Component {
     return (
       <div className="card-list-container">
         {list.map((robot) => {
-          const { name, id, email } = robot;
-          return (
-            <Card name={name} id={id} email={email} />
-          );
+          // const { name, id, email } = robot;
+          return <Card key={robot.id} list={robot} />;
         })}
       </div>
     );

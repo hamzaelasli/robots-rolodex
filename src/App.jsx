@@ -27,18 +27,15 @@ class App extends Component {
   render() {
     const { robots, searchField } = this.state;
     const { onSearchChange } = this;
-    // console.log(robots);
-    // console.log(searchField);
     const filtredRobots = robots.filter((robot) => {
       const robotName = robot.name.toLocaleLowerCase();
-      // console.log(robotName.includes(searchField));
       if (robotName.includes(searchField)) {
         return robot;
       }
     });
-    console.log(filtredRobots);
     return (
       <div className="container">
+        <h1 className="app-title">Robots Rolodex</h1>
         <SearchBox
           className={"search-box"}
           placeholder={"search robots"}
