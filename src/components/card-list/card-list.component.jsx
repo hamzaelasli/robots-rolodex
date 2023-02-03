@@ -1,19 +1,15 @@
-import { Component } from "react";
+import React from "react";
 import Card from "../card/card.component";
 import "./card-list.styles.css";
 
-class CardList extends Component {
-  render() {
-    const { list } = this.props;
-    return (
-      <div className="card-list-container">
-        {list.map((robot) => {
-          // const { name, id, email } = robot;
-          return <Card key={robot.id} list={robot} />;
-        })}
-      </div>
-    );
-  }
+function CardList({ robots }) {
+  return (
+    <div className="card-list-container">
+      {robots.map((robot) => {
+        return <Card  key={robot.id}robot={robot} />;
+      })}
+    </div>
+  );
 }
 
 export default CardList;
